@@ -2,6 +2,8 @@ package com.marknjunge.musicapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +28,21 @@ class MainActivity : AppCompatActivity() {
         rvSongs.adapter = adapter
 
         adapter.setItems(getSongs(), false)
+
+        motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {}
+
+            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {}
+
+            override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {}
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
+                when (motionLayout.currentState) {
+                    motionLayout.startState -> tvAlbumTitle.gravity = Gravity.CENTER
+                    motionLayout.endState -> tvAlbumTitle.gravity = Gravity.START
+                }
+            }
+        })
     }
 
     private fun getSongs() = listOf(
