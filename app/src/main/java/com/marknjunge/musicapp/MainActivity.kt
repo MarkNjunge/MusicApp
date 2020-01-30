@@ -43,6 +43,15 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        motionLayout.viewTreeObserver.addOnScrollChangedListener {
+            // There isn't any accurate way to listen to progress changes
+            if (motionLayout.progress > 0.5) {
+                tvAlbumTitle.gravity = Gravity.START
+            } else {
+                tvAlbumTitle.gravity = Gravity.CENTER
+            }
+        }
     }
 
     private fun getSongs() = listOf(

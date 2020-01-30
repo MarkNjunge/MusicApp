@@ -41,9 +41,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgAlbumCover">
-            <CustomAttribute
-                app:attributeName="textSize"
-                app:customFloatValue="20" />
         </Constraint>
 
         <Constraint
@@ -85,9 +82,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imgAlbumCover"
             app:layout_constraintTop_toTopOf="@id/imgAlbumCover">
-            <CustomAttribute
-                app:attributeName="textSize"
-                app:customFloatValue="16" />
         </Constraint>
 
         <Constraint
